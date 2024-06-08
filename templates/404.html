@@ -1,0 +1,14 @@
+{% extends 'container.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <h3>Oh, no, you are lost again????</h3>
+            <img src="{% static 'images/not-found.jpg' %}" alt="You are lost again">
+            <h2>Let me bring you at home</h2>
+            <a href="{% url 'ctf:home' %}">Go home</a>
+        </div>
+    </div>
+{% endblock content %}
+    

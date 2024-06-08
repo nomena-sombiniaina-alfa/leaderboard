@@ -1,0 +1,32 @@
+{% extends 'container.html' %}
+
+{% block content %}
+    <div class="container m-auto">
+        <div class="d-flex flex-column align-items-center justify-contents-center h-100 w-100">
+            <div class="align-items-center flex-column d-flex w-50 m-auto">
+                <h1 class="text-light text-center">Submit a flag</h1>
+                <p class="text-light">Submit a flag to get the instruction about the next room or the next flag of the current room</p>
+                <form class="w-100" method="post">
+                    <div class="mb-3">
+                        <label for="flag" class="text-secondary text-center h3">flag</label>
+                        <div class="input-group">
+                        <input class="form-control" type="text" name="flag" id="flag" placeholder="******************************************************">
+                        </div>
+                    </div>
+                    {% csrf_token %}
+                    <button class="btn btn-primary form-control">Submit</button>
+                </form>
+            </div>
+
+            <div class="w-50">
+                {% if team.current_flag %}
+                    <div class="bg-light my-5 p-3">
+                        <h2 class="title h2">Where to find the flag???</h2>
+                        <p>{{ team.current_flag.description }}</p>
+                        <p>Value : {{team.current_flag.value}}</p>
+                    </div>
+                {% endif %}
+            </div>   
+        </div> 
+    </div>
+{% endblock content %}
